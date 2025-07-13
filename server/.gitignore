@@ -3,6 +3,5 @@ node_modules
 .env
 .node_modules
 
-# Keep migrations and DB out of version control
+# Keep DB out of version control
 /prisma/dev.db
-/prisma/migrations
