@@ -183,24 +183,7 @@ export const DeleteUser = async (
 
 export const ListUsers = async (req: Request, res: Response) => {
   try {
-    const { limit, page, name, surname, country, status, startDate, endDate } =
-      req.query;
-
-    const limitNum = parseInt(limit as string) || 10; // valor por defecto 10
-    const pageNum = parseInt(page as string) || 1; // valor por defecto 1
-
-    if (isNaN(pageNum)) {
-      res
-        .status(400)
-        .send({ error: true, message: "La página debe ser un número válido." });
-      return;
-    }
-    if (isNaN(limitNum)) {
-      res
-        .status(400)
-        .send({ error: true, message: "El limite debe ser un número válido." });
-      return;
-    }
+    const { name, surname, country, status, startDate, endDate } = req.query;
 
     let parsedStartDate: Date | undefined;
     let parsedEndDate: Date | undefined;
@@ -230,8 +213,6 @@ export const ListUsers = async (req: Request, res: Response) => {
     };
 
     const recordsFounded = await prisma.users.findMany({
-      skip: (pageNum - 1) * limitNum,
-      take: limitNum,
       where: filters,
       orderBy: {
         date: "asc",
@@ -246,10 +227,7 @@ export const ListUsers = async (req: Request, res: Response) => {
       error: false,
       message: "",
       users: recordsFounded,
-      pagination: {
-        totalRecords,
-        totalPages: Math.ceil(totalRecords / limitNum),
-      },
+      totalRecords,
     });
   } catch (err) {
     console.error("Ha ocurrido un error al listar usuarios: ", err);

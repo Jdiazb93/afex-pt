@@ -84,8 +84,6 @@ describe("GET /api/user/list", () => {
 
     expect(response.body.error).toBe(false);
     expect(Array.isArray(response.body.users)).toBe(true);
-    expect(typeof response.body.pagination).toBe("object");
-    expect(typeof response.body.pagination.totalRecords).toBe("number");
-    expect(typeof response.body.pagination.totalPages).toBe("number");
+    expect(typeof response.body.totalRecords).toBe("number");
   });
 });
