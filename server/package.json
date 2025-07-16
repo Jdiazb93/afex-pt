@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npx prisma migrate dev --name init && ts-node-dev --respawn --clear src/index.ts",
     "build": "tsc",
-    "start": "npx prisma migrate deploy && ts-node src/index.ts",
+    "start": "npx prisma migrate dev --name init && ts-node src/index.ts",
     "test": "jest"
   },
   "keywords": [],
