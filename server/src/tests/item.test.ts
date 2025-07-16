@@ -8,7 +8,7 @@ describe("POST /api/item/create", () => {
       surname: "Pérez",
       amount: 1500,
       country: "CL",
-      agentType: "Interbank",
+      agentType: "INTERBANK",
       status: "active",
       date: new Date(),
     };
@@ -35,7 +35,7 @@ describe("PUT /api/item/edit/:id", () => {
       surname: "Pérez",
       amount: 500,
       country: "CL",
-      agentType: "Algo",
+      agentType: "INTERBANK",
       status: "active",
       date: new Date(),
     };

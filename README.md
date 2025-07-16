@@ -11,10 +11,6 @@ A continuación se detallan los pasos para levantar el servidor:
 
 De esta forma, se habrá levantado el servidor en el puerto 3000.
 
-> Si desea cambiar el puerto, puede modificar el archivo **index.ts** dentro de la carpeta **src**
-
-> Para cambiar el puerto sin modificar el archivo **index.ts**, puede crear un archivo **.env** y agregar variable **PORT=4000**
-
 > Si se desea cargar información desde las pruebas, puedes ejecutar el comando `npm test`
 
 ## Preparar Front
