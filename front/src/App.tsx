@@ -471,21 +471,31 @@ function App() {
             initial="hidden"
             animate="show"
           >
-            {items.map((element, index) => (
-              <ItemCard
-                agentType={element.agentType}
-                amount={element.amount}
-                country={element.country}
-                date={element.date}
-                id={element.id}
-                name={element.name}
-                status={element.status}
-                surname={element.surname}
-                key={element.id}
-                index={index}
-                onEdit={getData}
-              />
-            ))}
+            {items.length > 0 ? (
+              items.map((element, index) => (
+                <ItemCard
+                  agentType={element.agentType}
+                  amount={element.amount}
+                  country={element.country}
+                  date={element.date}
+                  id={element.id}
+                  name={element.name}
+                  status={element.status}
+                  surname={element.surname}
+                  key={element.id}
+                  index={index}
+                  onEdit={getData}
+                />
+              ))
+            ) : (
+              <div className="mt-4 bg-gray-200 w-full text-center border-2 border-dashed rounded-lg py-4 px-8 font-bold">
+                <span>
+                  {activeFilters
+                    ? "No se encontraron items para los filtros aplicados"
+                    : "No se encontraron items"}
+                </span>
+              </div>
+            )}
           </motion.ul>
           {/*Paginación*/}
           <Pagination
